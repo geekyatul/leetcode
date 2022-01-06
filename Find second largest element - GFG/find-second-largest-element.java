@@ -42,21 +42,22 @@ class Solution
         int secondMax=-1;
         
         for(int i=0;i<N;i++)
-        {
+        { 
+            
            
            if(A[i]>firstMax)
-              firstMax=A[i];
-        
-        }
-        
-        for(int i=0;i<N;i++)
-        {
-            if(A[i]>secondMax && A[i]!=firstMax)
+              {
+                  secondMax=firstMax;
+                  firstMax=A[i];
+              }
+             
+            else if(A[i]>secondMax && A[i]!=firstMax)
              {
                  secondMax=A[i];
-             }
-            
+             }  
+        
         }
+        
         
         return secondMax;
     }
