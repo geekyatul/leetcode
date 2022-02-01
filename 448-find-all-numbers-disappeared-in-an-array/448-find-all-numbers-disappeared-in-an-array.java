@@ -4,22 +4,21 @@ class Solution {
       
          List<Integer> ans=new ArrayList<>();
         
-        int newArray[]=new int[nums.length+1];
         for(int i=0;i<nums.length;i++)
         {
-            int number=nums[i];
-            newArray[number]=1;
+            int number=Math.abs(nums[i]);
+          
+            if(nums[number-1]>0)
+                nums[number-1]=-nums[number-1];
+                
         }
-        
-        
-        for(int i=1;i<newArray.length;i++)
+        for(int i=0;i<nums.length;i++)
         {
-            System.out.println(newArray[i]);
-            if(newArray[i]==0)
-                ans.add(i);
+            if(nums[i]>0)
+                ans.add(i+1);
         }
-        return ans;
             
+        return ans;
         
           
         
