@@ -10,6 +10,7 @@ class Solution {
         //how we we are defining the size of arrayList
         
         ArrayList<int []> list=new ArrayList<>();
+        //doubt how to decide the size of int arr
         
         ///First sort on the basis of start time
         Arrays.sort(intervals,(a,b)->a[0]-b[0]);
