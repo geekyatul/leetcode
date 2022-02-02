@@ -30,20 +30,18 @@ class Solution {
                 end++;
         }
         
-        int miss=nums.length;
+        
         for(int i=0;i<nums.length;i++)
         {
             if(i!=nums[i])
             {
-                 miss=i;
-                break;
-                
+                return i;
             }
                
             
         }
         
-        return  miss==nums.length?nums.length:miss;
+        return  nums.length;
     }
     
     public void swap(int arr[],int start,int end)
