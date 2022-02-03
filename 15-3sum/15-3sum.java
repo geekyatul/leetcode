@@ -8,16 +8,32 @@ class Solution {
         Arrays.sort(nums);
         List<List<Integer>> ans=new ArrayList<>();
        // List<Integer> singleAns=new ArrayList<>();
-        HashSet<List<Integer>> set=new HashSet<>();
-        
+       // HashSet<List<Integer>> set=new HashSet<>();
+        int startNum=Integer.MIN_VALUE;
         for(int i=0;i<nums.length-2;i++)
-        {
+        {   
+              if(startNum==nums[i])
+              {
+                  continue;
+              }
+              
             int start=i+1;
             int end=nums.length-1;
             int remainingSum=0-nums[i];
-                
+            int prev=Integer.MIN_VALUE;
+            int next=Integer.MIN_VALUE;
             while(start<end)
-            {
+            {    
+                if(prev==nums[start])
+                {
+                    start++;
+                    continue;
+                }
+                if(next==nums[end])
+                {
+                    end--;
+                    continue;
+                }
                 int sum=nums[start]+nums[end];
                 if(sum==remainingSum)
                 {
@@ -25,7 +41,11 @@ class Solution {
                     singleAns.add(nums[i]);
                     singleAns.add(nums[start]);
                     singleAns.add(nums[end]);
-                    set.add(singleAns);
+                    //set.add(singleAns);
+                    ans.add(singleAns);
+                    prev=nums[start];
+                    next=nums[end];
+                    startNum=nums[i];
                     start++;
                     end--;
                 }
@@ -36,11 +56,7 @@ class Solution {
             }
         }
         
-        for(List<Integer> ele:set)
-        {
-            ans.add(ele);
-        }
-        return ans;
+          return ans;
         
     }
 }
