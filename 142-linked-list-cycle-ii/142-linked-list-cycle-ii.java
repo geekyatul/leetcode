@@ -16,20 +16,14 @@ public class Solution {
         if(node==null)
             return null;
         
-        ListNode start=head;
-        
-        if(node==start)
+        ListNode entry=head;
+        while(node!=entry)
         {
-            return start;
-        }
-        
-        while(start.next!=node.next)
-        {
-            start=start.next;
             node=node.next;
+            entry=entry.next;
         }
-        return start.next;
-        
+        return entry;
+         
     }
     
     public ListNode isCycle(ListNode head)
