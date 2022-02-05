@@ -23,15 +23,25 @@ class Solution {
         //Now we can iterate 
         ListNode first=head;
         ListNode second=reverseHead;
+     
+        boolean result=true;
         while(second!=null)
         {
             if(first.val!=second.val)
-                return false;
+            {
+                result=false;
+                break;
+            }
             first=first.next;
             second=second.next;
         }
         
-        return true;
+        //Its not good habit we have to return same linkedlist 
+        ListNode rev=reverse(reverseHead);
+        middle.next=rev;
+        
+        
+        return result;
         
         
         
