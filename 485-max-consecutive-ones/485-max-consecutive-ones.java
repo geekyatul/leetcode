@@ -8,16 +8,13 @@ class Solution {
         int max=0;
         while(travel<nums.length)
         {
-            int count=0;
-            if(nums[travel]==1)
-            {
+                int count=0;
                 while(travel<nums.length && nums[travel]==1)
                 {
                     count++;
                     travel++;
                 }
                 max=Math.max(max,count);
-            }
             travel++;
         }
         return max;
