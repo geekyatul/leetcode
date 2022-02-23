@@ -63,41 +63,40 @@ class Solution
     static int[] topoSort(int V, ArrayList<ArrayList<Integer>> adj) 
     {
         // add your code here
-        //this require indegree and outdegree
+        //How to start
         
-        int indegree[]=new int[V]; //because it start from 0 index
-        Queue<Integer> que=new LinkedList<>();
-        
-        for(ArrayList<Integer> ar:adj)
-        {
-            for(Integer it:ar)
-            {
-                indegree[it]++;
-            }
-        }
-        
-        for(int i=0;i<V;i++)
-        {
-              if(indegree[i]==0)
-                 que.add(i);
-        }
-        
+        Stack<Integer> stack=new Stack<>();
         int ans[]=new int[V];
         int ansIndex=0;
         
-        while(!que.isEmpty())
-        {
-            int node=que.poll();
-            ans[ansIndex++]=node;
-            for(int it:adj.get(node))
-            {
-                indegree[it]--;
-                if(indegree[it]==0)
-                que.offer(it);
-            }
+        boolean visited[]=new boolean[V];
+        
+        for(int i=0;i<V;i++)
+        {  
+            if(visited[i]==false)
+            dfs(i,stack,visited,adj);
         }
+        
+        while(!stack.isEmpty())
+        {
+            ans[ansIndex++]=stack.pop();
+        }
+        
         return ans;
-        
-        
+    }
+    
+    public static void dfs(int node,Stack<Integer> stack,boolean visted[],ArrayList<ArrayList<Integer>> adj)
+    {
+          visted[node]=true;  
+          
+          for(Integer it:adj.get(node))
+          {
+              if(visted[it]==false)
+              {
+                  dfs(it,stack,visted,adj);
+              }
+          }
+          stack.push(node);
+         
     }
 }
