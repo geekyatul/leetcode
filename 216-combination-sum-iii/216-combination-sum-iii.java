@@ -21,7 +21,7 @@ class Solution {
         {    
             if(sum==target && tempans.size()==k)
             { ans.add(new ArrayList<Integer>(tempans));
-            System.out.println(ans);
+             // System.out.println(ans);
             }
             return;
         }
