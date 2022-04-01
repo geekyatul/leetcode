@@ -10,17 +10,17 @@ class Solution {
             
             while(start<end && !isVowel(ch[start]))
             {
-                System.out.println("start" + ch[start]);
+               // System.out.println("start" + ch[start]);
                 start++;
             }
             while(start<end && !isVowel(ch[end]))
             {
-                System.out.println("end" + ch[end]);
+               // System.out.println("end" + ch[end]);
                 end--;
             }
-            System.out.println(ch[start]+" " + ch[end]);
+           // System.out.println(ch[start]+" " + ch[end]);
             swap(ch,start,end);
-            System.out.println("after swapping string will be " + ch);
+            //System.out.println("after swapping string will be " + ch);
             start++;
             end--;
             
