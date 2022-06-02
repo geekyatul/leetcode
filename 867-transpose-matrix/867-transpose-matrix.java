@@ -3,9 +3,8 @@ class Solution {
         
         int rowLength=matrix.length;
         int colLength=matrix[0].length;
-        int resMatrix[][]=new int[colLength][rowLength];
-        
-        for(int i=0;i<rowLength;i++)
+        int resMatrix[][]=new int[colLength][rowLength]; 
+       for(int i=0;i<rowLength;i++)
         {
             for(int j=0;j<colLength;j++)
             {
@@ -15,8 +14,5 @@ class Solution {
         
         return resMatrix;
         
-        
-    }
-    
-   
+    }   
 }
